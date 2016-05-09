@@ -3,6 +3,12 @@
     margin-top: 20px;
     padding: 0 20px;
 }
+
 .panel {
     border-radius: 0px;
+}
+
+.no-boder {
+    border: none !important;
+
 }

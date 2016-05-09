@@ -322,18 +322,35 @@
                 </div>
                 <div class="advertisement">
                     <h3>Thông Báo</h3>
+
                     <div class="panel panel-info">
-                    <marquee behavior="scroll" direction="up" scrollamount="2" onmouseover="this.stop();" onmouseout="this.start();">
-                        <p>
-                            <a href="">safsaffdsafffffffffffttttttttttttttttgggggggbbbbbbbbbbbbffffffffffffffffffffffffffffffffff </a><br>
-                            <span>noi dung cua no</span><br>
-                            <a href="">xem</a><br>
-                            <hr>
-                        </p>
-                        <div>sadfasdfsa</div>
-                        <div>sadfasdfsa</div>
-                        <div>sadfasdfsa</div>
-                    </marquee>
+                        <marquee behavior="scroll" direction="up" scrollamount="2" onmouseover="this.stop();"
+                                 onmouseout="this.start();">
+                            <div class="twitter">
+                                <div class="twitter-info">
+                                    <p class="no-boder">
+                                        <a href="#">Tiêu đề được phép viết tương đối dài dòng
+                                            <span><br>Click de xem hoac tai<br></span>
+                                        </a>
+                                        Tiêu đề được phép viết tương đối dài dòngTiêu đề được phép viết tương đối dài
+                                        dòngTiêu đề được phép viết tương đối dài dòngTiêu đề được phép viết tương đối
+                                        dài dòng
+
+                                    </p>
+                                </div>
+                                <div class="twitter-info">
+                                    <p class="no-boder">Genesis Child Themes at Theme Garden – December 5th -->
+                                        <a href="#">http://bit.ly/ibXdjY#genesiswp <span>#themegarden</span></a>
+                                    </p>
+                                </div>
+                                <div class="twitter-info">
+                                    <p class="no-boder">Genesis Child Themes at Theme Garden – December 5th -->
+                                        <a href="#">http://bit.ly/ibXdjY#genesiswp <span>#themegarden</span></a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </marquee>
                     </div>
                 </div>
 
