@@ -1,16 +1,16 @@
-@extends('admin.master')
+@extends('backend.layouts.master')
 @section('controller','Tin tức')
 @section('action','Chỉnh sửa')
 @section('content')
 
     <form action="" method="POST" enctype="multipart/form-data">
-        @include('admin.partials.vali_msg')
+        @include('backend.partials.vali_msg')
         <div class="col-lg-7" style="padding-bottom:120px">
             <div class="form-group">
                 <label>Tên danh mục</label>
                 <select class="form-control" name="cate">
                     <option value="0">Chọn danh mục</option>
-                    <?php cate($cate_parent, 0, '', $news->category_id) ?>
+                    <?php cate($category, 0, '', $news->category_id) ?>
                 </select>
             </div>
             <div class="form-group">
@@ -20,17 +20,21 @@
             </div>
             <div class="form-group">
                 <label>Trích dẫn</label>
-                <textarea class="form-control" rows="3" name="intro">{{ old('intro', $news->intro) }}</textarea>
-                <script type="text/javascript">ckeditor('intro')</script>
+                <textarea class="form-control" rows="3" name="summary">{{ old('summary', $news->summary) }}</textarea>
+                <script type="text/javascript">ckeditor('summary','config_3')</script>
             </div>
             <div class="form-group">
                 <label>Nội dung tin</label>
-                <textarea class="form-control" rows="6" name="full">{{ old('full', $news->full) }}</textarea>
-                <script type="text/javascript">ckeditor('full')</script>
+                <textarea class="form-control" rows="6" name="content">{{ old('content', $news->content) }}</textarea>
+                <script type="text/javascript">ckeditor('content')</script>
+            </div>
+            <div class="form-group">
+                <label>Từ khóa tìm kiếm</label>
+                <textarea class="form-control" rows="3" name="keywords">{{ old('keywords',$news->keywords) }}</textarea>
             </div>
             <div class="form-group">
                 <label>Hình hiện tại</label>
-                <img src="{!! asset('upload/'.$news->image)!!}" alt="{{ $news->title }}"
+                <img src="{!! asset('upload/images/'.$news->image)!!}" alt="{{ $news->title }}"
                      class="img-responsive img-thumbnail img-thumbnail-current"
                      style="height: auto;width: 300px;">
             </div>

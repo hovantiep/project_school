@@ -9,7 +9,7 @@
                 <label>Tên danh mục</label>
                 <select class="form-control" name="cate">
                     <option value="0">Chọn danh mục</option>
-                    <?php //cate($categories,0,'',old('cate')) ?>
+                    <?php cate($categories,0,'',old('cate')) ?>
                 </select>
             </div>
             <div class="form-group">
@@ -19,13 +19,17 @@
             </div>
             <div class="form-group">
                 <label>Trích dẫn</label>
-                <textarea class="form-control" rows="3" name="intro">{{ old('intro') }}</textarea>
-                <script type="text/javascript">ckeditor('intro')</script>
+                <textarea class="form-control" rows="3" name="summary">{{ old('summary') }}</textarea>
+                <script type="text/javascript">ckeditor('summary','config_3')</script>
             </div>
             <div class="form-group">
                 <label>Nội dung tin</label>
-                <textarea class="form-control" rows="6" name="full">{{ old('full') }}</textarea>
-                <script type="text/javascript">ckeditor('full','config_3')</script>
+                <textarea class="form-control" rows="6" name="content">{{ old('content') }}</textarea>
+                <script type="text/javascript">ckeditor('content')</script>
+            </div>
+            <div class="form-group">
+                <label>Từ khóa tìm kiếm</label>
+                <textarea class="form-control" rows="3" name="keywords">{{ old('keywords') }}</textarea>
             </div>
             <div class="form-group">
                 <label>Hình đại diện</label>

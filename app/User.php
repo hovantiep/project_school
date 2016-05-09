@@ -26,16 +26,16 @@ class User extends Authenticatable
 
     public function news()
     {
-        return $this->hasMany('App/News','user_id','id');
+        return $this->hasMany('App\News','user_id','id');
     }
 
     public function notifications()
     {
-        return $this->hasMany('App/Notification','user_id','id');
+        return $this->hasMany('App\Notification','user_id','id');
     }
 
     public function documents()
     {
-        return $this->hasMany('App/Document','user_id','id');
+        return $this->hasMany('App\Document','user_id','id');
     }
 }

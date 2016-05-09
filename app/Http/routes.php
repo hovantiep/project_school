@@ -34,6 +34,26 @@ Route::get('file', function () {
     return 'fail';
 });
 
+
+
+Route::group(['prefix'=>'backend','middleware'=>'auth'],function(){
+
+    Route::group(['prefix'=>'news'],function(){
+
+        Route::get('index',['as'=>'getIndexNews','uses'=>'NewsController@getIndex']);
+
+        Route::get('add',['as'=>'getAddNews','uses'=>'NewsController@getAdd']);
+        Route::post('add',['as'=>'postAddNews','uses'=>'NewsController@postAdd']);
+
+        Route::get('edit/{news}',['as'=>'getEditNews','uses'=>'NewsController@getEdit']);
+        Route::post('edit/{news}',['as'=>'postEditNews','uses'=>'NewsController@postEdit']);
+
+        Route::get('delete/{news}',['as'=>'getDeleteNews','uses'=>'NewsController@getDelete']);
+
+    });
+});
+
 Route::get('test',function(){
-   return view('frontend.index');
+    dd(\App\News::all()->first()->category->name);
+//    return view('frontend.index');
 });
