@@ -68,6 +68,9 @@ Route::group(['prefix'=>'backend','middleware'=>'auth'],function(){
 });
 
 Route::get('test',function(){
-    dd(\App\News::all()->first()->category->name);
-//    return view('frontend.index');
+    return view('frontend.index');
 });
+
+Route::any('{all?}',function(){
+    return view('errors.503');
+})->where('all', '(.*)');
