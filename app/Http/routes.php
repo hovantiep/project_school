@@ -51,6 +51,20 @@ Route::group(['prefix'=>'backend','middleware'=>'auth'],function(){
         Route::get('delete/{news}',['as'=>'getDeleteNews','uses'=>'NewsController@getDelete']);
 
     });
+
+    Route::group(['prefix'=>'cate'],function(){
+
+        Route::get('index',['as'=>'getIndexCate','uses'=>'CategoryController@getIndex']);
+
+        Route::get('add',['as'=>'getAddCate','uses'=>'CategoryController@getAdd']);
+        Route::post('add',['as'=>'postAddCate','uses'=>'CategoryController@postAdd']);
+
+        Route::get('edit/{cate}',['as'=>'getEditCate','uses'=>'CategoryController@getEdit']);
+        Route::post('edit/{cate}',['as'=>'postEditCate','uses'=>'CategoryController@postEdit']);
+
+        Route::get('delete/{cate}',['as'=>'getDeleteCate','uses'=>'CategoryController@getDelete']);
+
+    });
 });
 
 Route::get('test',function(){

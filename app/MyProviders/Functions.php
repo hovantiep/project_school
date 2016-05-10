@@ -80,12 +80,9 @@ function strToSlug($str, $modeLower = 2)
  */
 function convToUtf8($str)
 {
-    if( mb_detect_encoding($str,"UTF-8, ISO-8859-1, GBK")!="UTF-8" )
-    {
-        return  iconv("gbk","utf-8",$str);
-    }
-    else
-    {
+    if (mb_detect_encoding($str, "UTF-8, ISO-8859-1, GBK") != "UTF-8") {
+        return iconv("gbk", "utf-8", $str);
+    } else {
         return $str;
     }
 }
@@ -114,27 +111,31 @@ function cate($data, $parent = 0, $str = "", $select = 0)
     }
 }
 
-function show_cate($data, $parent = 0, $str = "")
+function show_cate($data, $parent = 0, $str = "", &$i = 1)
 {
-    $i = 0;
     foreach ($data as $item) {
         $id = $item->id;
         $name = $item->name;
         if ($item->parent_id == $parent) {
             echo '<tr class="odd gradeX" align="center">
-                     <td>' . $i++ . '</td>
-                     <td align="left">' . $str . $name . '</td>
+                     <td>' . $i++ . '</td>';
+            if ($item->parent_id == 0) {
+                echo '<td align="left"><b>' . $str . $name . '</b></td>';
+            } else {
+                echo '<td align="left">' . $str . $name . '</td>';
+            }
+            echo '<td>' . $item->order . '</td>
                      <td class="center">
                         <i class="fa fa-trash-o fa-fw"></i>
                         <a onclick="return confirmDel(' . "'Có chắc chắn xóa không?'" . ')"
-                            href="' . route('getCateDelete', $item->id) . '"> Xóa</a>
+                            href="' . route('getDeleteCate', $item->id) . '"> Xóa</a>
                      </td>
                      <td class="center">
                         <i class="fa fa-pencil fa-fw"></i>
-                        <a href="' . route('getCateEdit', $item->id) . '"> Sửa</a>
+                        <a href="' . route('getEditCate', $item->id) . '"> Sửa</a>
                      </td>
                  </tr>';
-            show_cate($data, $id, $str . "+ ");
+            show_cate($data, $id, $str . "+ ", $i);
         }
 
     }
