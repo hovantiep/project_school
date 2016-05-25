@@ -71,6 +71,14 @@ Route::get('test',function(){
     return view('frontend.index');
 });
 
+Route::group(['prefix'=>'quiz'],function(){
+
+    Route::get('index',['as'=>'getIndexExam','uses'=>'ExaminationController@getIndex']);
+    Route::post('index',['as'=>'postIndexExam','uses'=>'ExaminationController@postIndex']);
+});
+
+
+
 Route::any('{all?}',function(){
     return view('errors.503');
 })->where('all', '(.*)');

@@ -1,0 +1,55 @@
+body {
+    background-color: #eee;
+}
+
+#menu, #slide {
+    margin: 0.5em 0;
+}
+
+#v-menu {
+    margin-bottom: 1.5em;
+}
+
+.thin {
+    margin-bottom: 5px;
+}
+
+article section .panel-body {
+    padding: 0 2.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+article section .panel-body h4 {
+    margin-top: 0;
+}
+
+.no-border {
+    border: none;
+    background: #e3e3e3;
+    padding: 0;
+}
+
+.bx-wrapper {
+    margin: 0px auto 15px;
+}
+
+.bx-wrapper .bx-prev {
+    left: -20px;
+}
+
+.bx-wrapper .bx-next {
+    right: -20px;
+}
+
+footer {
+    background: #000000;
+    color: #ffffff;
+    padding: 1em 0;
+}
+
+footer div {
+    display: inline-block;
+    vertical-align: middle;
+    float: none !important;
+}
