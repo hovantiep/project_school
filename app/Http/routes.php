@@ -75,6 +75,8 @@ Route::group(['prefix'=>'quiz'],function(){
 
     Route::get('index',['as'=>'getIndexExam','uses'=>'ExaminationController@getIndex']);
     Route::post('index',['as'=>'postIndexExam','uses'=>'ExaminationController@postIndex']);
+
+    Route::get('test',['as'=>'getTestExam','uses'=>'ExaminationController@AnswerTable']);
 });
 
 

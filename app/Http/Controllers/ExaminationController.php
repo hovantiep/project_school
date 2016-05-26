@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Codes;
 use App\Http\Requests;
+use App\Questions;
 use Illuminate\Http\Request;
 
 class ExaminationController extends Controller
@@ -30,13 +31,78 @@ class ExaminationController extends Controller
         dd($count);
     }
 
-    private function MixQuestions()
+    public function AnswerTable()
     {
-
+        $ratio = [
+            'A' => 1,
+            'B' => 1,
+            'C' => 1,
+            'D' => 1,
+        ];
+        $answer_table = [];
+        $inc = 0;
+        foreach ($ratio as $key => $val) {
+            if ($val > 0) {
+                for ($i = 1; $i <= $val; $i++) {
+                    $answer_table[$inc] = $key;
+                    $inc++;
+                }
+            }
+        }
+        shuffle($answer_table);
+        echo "<pre>";
+        print_r($answer_table);
+        echo "</pre>";
+        $this->MixQuestions($answer_table);
     }
 
-    private function AnswerTable()
+    private function MixQuestions($answer_table)
     {
+        $id = 1;
+        $result = [];
+        $db = Questions::all()->toArray();
 
+        foreach ($answer_table as $key => $value) {
+            $rand = array_rand($db);
+            $question = $db[$rand];
+            unset($db[$rand]);
+
+            $case = json_decode($question['case'], true);
+
+            if ($value == 'A') $i = 0;
+            elseif ($value == 'B') $i = 1;
+            elseif ($value == 'C') $i = 2;
+            else $i = 3;
+
+            while ($case[$i] != $question['answer']) {
+                shuffle($case);
+            }
+            echo "<pre>";
+            print_r($question);
+            echo "</pre>";
+            dd($case);
+
+//            $temp['QS'] = $question['question'];
+
+//            $result[$key] = $temp;
+        }
+        $a = [
+            '1' => [
+                "QS" => "Byte co bao nhieu bit",
+                "A" => "5",
+                "B" => "6",
+                "C" => "7",
+                "D" => "8",
+            ],
+            '2' => [
+                "QS" => "Bit co bao nhieu gia tri",
+                "A" => "1",
+                "B" => "2",
+                "C" => "3",
+                "D" => "4",
+            ]
+        ];
     }
+
+
 }
