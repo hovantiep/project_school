@@ -23,7 +23,7 @@ class ExaminationController extends Controller
         $id = 1;
         $count = 0;
         $db = Codes::select('answer_table')->where('id', $id)->first();
-        $answer = json_decode($db['answer_table'], true);
+        $answer = json_decode($db['answer_table']);
 
         foreach ($answer as $key => $value) {
             if ($request[$key] == $value) $count++;
@@ -33,12 +33,7 @@ class ExaminationController extends Controller
 
     public function AnswerTable()
     {
-        $ratio = [
-            1,
-            1,
-            1,
-            1,
-        ];
+        $ratio = [1, 1, 1, 0,];
         $answer_table = [];
         $inc = 0;
         foreach ($ratio as $key => $val) {
@@ -50,9 +45,7 @@ class ExaminationController extends Controller
             }
         }
         shuffle($answer_table);
-        echo "<pre>";
-        print_r($answer_table);
-        echo "</pre>";
+        echo json_encode($answer_table);
         $this->MixQuestions($answer_table);
     }
 
@@ -72,31 +65,12 @@ class ExaminationController extends Controller
             while ($case[$value] != $question['answer']) {
                 shuffle($case);
             }
-            echo "<pre>";
-            print_r($question);
-            echo "</pre>";
-            dd($case);
 
-//            $temp['QS'] = $question['question'];
+            array_push($case, $question['question']);
+            $result[$key] = $case;
 
-//            $result[$key] = $temp;
         }
-        $a = [
-            '1' => [
-                "QS" => "Byte co bao nhieu bit",
-                "A" => "5",
-                "B" => "6",
-                "C" => "7",
-                "D" => "8",
-            ],
-            '2' => [
-                "QS" => "Bit co bao nhieu gia tri",
-                "A" => "1",
-                "B" => "2",
-                "C" => "3",
-                "D" => "4",
-            ]
-        ];
+        dd(json_encode($result));
     }
 
 
