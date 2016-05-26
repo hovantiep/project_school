@@ -88,44 +88,44 @@
                     <div class="panel-body">
                         {{--questions--}}
                         @foreach($questions as $key => $item)
-                        <div>
-                            <h4>Cau {{ $key }}</h4>
-                            <h5>{{ $item->QS }}
-                            </h5>
+                            <div>
+                                <h4>Cau {{ $key + 1 }}</h4>
+                                <h5>{{ $item[4] }}
+                                </h5>
 
-                            <div class="col-md-6">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" value="A" name="{{ $key }}">
-                                        A. {{ $item->A }}
-                                    </label>
+                                <div class="col-md-6">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" value="0" name="{{ $key }}">
+                                            A. {{ $item[0] }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" value="1" name="{{ $key }}">
+                                            B. {{ $item[1] }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" value="2" name="{{ $key }}">
+                                            C. {{ $item[2] }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" value="3" name="{{ $key }}">
+                                            D. {{ $item[3] }}
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" value="B" name="{{ $key }}">
-                                        B. {{ $item->B }}
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" value="C" name="{{ $key }}">
-                                        C. {{ $item->C }}
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" value="D" name="{{ $key }}">
-                                        D. {{ $item->D }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
                         @endforeach
                         {{--end questions--}}
 
