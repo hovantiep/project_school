@@ -34,10 +34,10 @@ class ExaminationController extends Controller
     public function AnswerTable()
     {
         $ratio = [
-            'A' => 1,
-            'B' => 1,
-            'C' => 1,
-            'D' => 1,
+            1,
+            1,
+            1,
+            1,
         ];
         $answer_table = [];
         $inc = 0;
@@ -69,12 +69,7 @@ class ExaminationController extends Controller
 
             $case = json_decode($question['case'], true);
 
-            if ($value == 'A') $i = 0;
-            elseif ($value == 'B') $i = 1;
-            elseif ($value == 'C') $i = 2;
-            else $i = 3;
-
-            while ($case[$i] != $question['answer']) {
+            while ($case[$value] != $question['answer']) {
                 shuffle($case);
             }
             echo "<pre>";
