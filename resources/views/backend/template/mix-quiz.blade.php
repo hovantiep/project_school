@@ -29,6 +29,15 @@
     <script src="{{ asset('template/bxslider/jquery.bxslider.min.js') }}"></script>
     <script src="{{ asset('template/bxslider/plugins/jquery.fitvids.js') }}"></script>
 
+    {{-- CK EDITOR and CK FINDER --}}
+    <script src="{{ url('backend/fck_editor/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ url('backend/fck_editor/ckfinder/ckfinder.js') }}"></script>
+    <script type="text/javascript">
+        var baseURL = "{{ url('/') }}";
+    </script>
+    <script src="{{ url('backend/fck_editor/func_ckfinder.js') }}"></script>
+    {{-- END CK EDITOR and CK FINDER --}}
+
 </head>
 <body>
 <div class="container">
@@ -77,68 +86,85 @@
     <!--Content-->
     <div class="row">
         <div class="col-md-6">
-            Code: 31
+            ad
         </div>
         <div class="col-md-6">
-            Time: 10 minutes
+            asd
         </div>
         <div class="col-md-12">
-            <form class="form-horizontal" role="form" method="post">
-                <div class="panel panel-info">
-                    <div class="panel-body">
-                        {{--questions--}}
-                        @foreach($questions as $key => $item)
-                            <div>
-                                <h4>Cau {{ $key + 1 }}</h4>
-                                <h5>{!! $item[4] !!}
-                                </h5>
-
-                                <div class="col-md-6">
-                                    <div class="radio">
-                                        <label style="display: inline-flex">
-                                            <input type="radio" value="0" name="{{ $key }}">
-                                            A. {!! $item[0] !!}
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="radio">
-                                        <label style="display: inline-flex">
-                                            <input type="radio" value="1" name="{{ $key }}">
-                                            B. {!! $item[1] !!}
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="radio">
-                                        <label style="display: inline-flex">
-                                            <input type="radio" value="2" name="{{ $key }}">
-                                            C. {!! $item[2] !!}
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="radio">
-                                        <label style="display: inline-flex">
-                                            <input type="radio" value="3" name="{{ $key }}">
-                                            D. {!! $item[3] !!}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        {{--end questions--}}
-
+            <form action="" method="POST" class="form-horizontal" role="form">
+                <div class="col-md-6">
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="form-group">
+                            <label for="">Đáp án A</label>
+                            <input class="form-control" type="text" name="ratio[]">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="form-group">
+                            <label for="">Đáp án B</label>
+                            <input class="form-control" type="text" name="ratio[]">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="form-group">
+                            <label for="">Đáp án C</label>
+                            <input class="form-control" type="text" name="ratio[]">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="form-group">
+                            <label for="">Đáp án D</label>
+                            <input class="form-control" type="text" name="ratio[]">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-5 col-sm-6">
-                        <button type="submit" class="btn btn-primary">Result</button>
+                <div class="col-md-6">
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="form-group">
+                            <label for="">Mức độ 1</label>
+                            <input class="form-control" type="text" name="level[]">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="form-group">
+                            <label for="">Mức độ 2</label>
+                            <input class="form-control" type="text" name="level[]">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="form-group">
+                            <label for="">Mức độ 3</label>
+                            <input class="form-control" type="text" name="level[]">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="form-group">
+                            <label for="">Mức độ 4</label>
+                            <input class="form-control" type="text" name="level[]">
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Chương</label>
+                        <select class="form-control" name="chapter[]" id="" multiple>
+                            <option value="0" selected>Tất cả</option>
+                            @foreach($chapter as $item)
+                                <option value="{{ $item }}">{{ $item }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">d</div>
+                <div class="col-md-12">
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary">Mix</button>
                         <button type="reset" class="btn btn-default">Reset</button>
                     </div>
                 </div>
                 {{ csrf_field() }}
-
             </form>
         </div>
     </div>
